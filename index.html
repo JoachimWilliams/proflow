@@ -1,101 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProFlow</title>
-    <link rel="icon" type="image/png" href="https://iili.io/Fk5Cquf.png">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://iili.io/FkuVUG9.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .navbar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 20px;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            -webkit-text-stroke: 0.3px black;
-            text-shadow: 0 0 1px black;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-        .content {
-            text-align: center;
-        }
-        .title {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            -webkit-text-stroke: 0.3px black;
-            text-shadow: 0 0 1px black;
-        }
-        .title div {
-            display: block;
-        }
-        .subtitle {
-            font-size: 24px;
-            margin-bottom: 30px;
-            -webkit-text-stroke: 0.3px black;
-            text-shadow: 0 0 1px black;
-        }
-        .button {
-            background-color: #ff9f59;
-            color: black;
-            padding: 15px 50px;
-            border: 2px solid white;
-            border-radius: 25px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        .logo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            width: 200px;
-            height: 200px;
-        }
-    </style>
-</head>
-<body>
-    <div class="logo">
-        <img src="https://iili.io/Fk5Cquf.png" alt="ProFlow Logo">
-    </div>
-    <div class="navbar">
-        <a href="#">Contact</a>
-        <a href="#">Terms</a>
-        <a href="#">How It Works</a>
-        <a href="#">Log in</a>
-    </div>
-    <div class="content">
-        <div class="title">
-            <div>Never Miss</div>
-            <div>Another Call</div>
-            <div>Again</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProFlow Intelligence</title>
+    <link rel="icon" type="image/png" href="https://iili.io/Fk5Cquf.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-black text-white font-sans min-h-screen">
+    <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 bg-black shadow-md">
+      <div class="flex items-center space-x-2">
+        <img src="https://iili.io/Fk5Cquf.png" alt="ProFlow Logo" class="w-8 h-8 sm:w-10 sm:h-10" />
+        <span class="text-base sm:text-lg font-semibold">ProFlow Intelligence</span>
+      </div>
+      <nav class="flex items-center space-x-4 sm:space-x-8 text-sm">
+        <a href="#" class="hover:text-blue-400">Overview</a>
+        <a href="#" class="hover:text-blue-400">Start Today!</a>
+        <a href="#" class="hover:text-blue-400">Team</a>
+        <a href="#" class="bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Get Started</a>
+      </nav>
+    </header>
+
+    <section class="flex flex-col-reverse lg:flex-row items-center justify-between px-4 sm:px-8 py-20 max-w-7xl mx-auto mt-20 sm:mt-24">
+      <div class="max-w-xl space-y-6 text-center lg:text-left">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">Never Miss Another Call Again ☎️</h1>
+        <p class="text-gray-400 text-base sm:text-lg">ProFlow will handle your calls with smart automation, so you never lose a lead.</p>
+        <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold">Get Started</a>
+      </div>
+      <div class="mb-12 lg:mb-0">
+        <div class="bg-white text-black p-4 sm:p-6 rounded-xl shadow-lg w-full max-w-[340px] space-y-4 mx-auto">
+          <div class="font-medium">📞 Initial Greeting</div>
+          <div class="bg-gray-100 px-3 py-2 rounded-md">📋 Roofing Issue Inquiry</div>
+          <div class="bg-gray-100 px-3 py-2 rounded-md">📥 Lead Capture Introduction</div>
+          <div class="bg-gray-100 px-3 py-2 rounded-md">📝 Collect Full Name</div>
+          <div class="bg-gray-100 px-3 py-2 rounded-md">📱 Collect Phone Number</div>
+          <div class="bg-gray-100 px-3 py-2 rounded-md">📅 Preferred Date Time</div>
         </div>
-        <div class="subtitle">ProFlow will handle your calls with smart automation, so you never lose a lead.</div>
-        <button class="button">Start Now</button>
-    </div>
-</body>
+      </div>
+    </section>
+
+    <hr class="border-gray-700 mx-auto max-w-7xl" />
+
+    <section class="bg-black py-12 sm:py-16 px-4 sm:px-8 text-center">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4">Why You Should Join! ✨</h2>
+      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto italic">
+        “AI is here to assist you for the future, and losing clients is one of the worst ways to lose money! 💸”
+      </p>
+      <p class="text-white mt-2 font-semibold">Use ProFlow Today.</p>
+    </section>
+
+    <hr class="border-gray-700 mx-auto max-w-7xl" />
+
+    <section class="bg-black py-12 sm:py-16 px-4 sm:px-8 max-w-5xl mx-auto">
+      <h2 class="text-xl sm:text-2xl font-bold text-center mb-10">Our Team 👩‍💻</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center">
+        <div>
+          <img src="https://via.placeholder.com/100" alt="TeamNameOne" class="rounded-full mx-auto mb-4 w-20 h-20 sm:w-24 sm:h-24" />
+          <p class="font-semibold">TeamNameOne</p>
+          <p class="text-sm text-gray-400">Founder & CEO</p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/100" alt="TeamNameTwo" class="rounded-full mx-auto mb-4 w-20 h-20 sm:w-24 sm:h-24" />
+          <p class="font-semibold">TeamNameTwo</p>
+          <p class="text-sm text-gray-400">Operations Manager</p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/100" alt="TeamNameThree" class="rounded-full mx-auto mb-4 w-20 h-20 sm:w-24 sm:h-24" />
+          <p class="font-semibold">TeamNameThree</p>
+          <p class="text-sm text-gray-400">Lead Engineer</p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
