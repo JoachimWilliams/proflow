@@ -1,5 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProFlow Intelligence - Login</title>
+  <link rel="icon" type="image/png" href="https://iili.io/Fk5Cquf.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-custom-gray { background-color: #181919; }
+    .bg-box-gray { background-color: #2d2d2d; }
+  </style>
+  <script>
+    const BASE_URL = "https://joachimwilliams.pythonanywhere.com";
+
+    async function requestLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      try {
+        const response = await fetch(`${BASE_URL}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          document.getElementById('loginForm').classList.add('hidden');
+          document.getElementById('verifyForm').classList.remove('hidden');
+          document.getElementById('verifyUsername').value = data.username;
+        } else {
+          alert(data.error);
+        }
+      } catch {
+        alert('Error requesting login.');
+      }
+    }
+
+    async function verifyLogin() {
+      const username = document.getElementById('verifyUsername').value;
+      const code = document.getElementById('verifyCode').value;
+      try {
+        const response = await fetch(`${BASE_URL}/verify-login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, code })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          window.location.href = data.isAdmin ? '/dashboard.html' : '/user_dashboard.html';
+        } else {
+          alert(data.error);
+        }
+      } catch {
+        alert('Error verifying login.');
+      }
+    }
+  </script>
+</head>
+<body class="bg-custom-gray text-white font-sans min-h-screen flex items-center justify-center">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
