@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProFlow Intelligence - Sign Up</title>
-    <link rel="icon" type="image/png" href="https://iili.io/Fk5Cquf.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .bg-custom-gray {
-        background-color: #181919;
-      }
-      .bg-box-gray {
-        background-color: #2d2d2d;
-      }
-    </style>
-    <script>
-      async function requestSignup() {
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        try {
-          const response = await fetch('/signup', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password, email, firstName, lastName })
-          });
-          const data = await response.json();
-          if (response.ok) {
-            document.getElementById('signupForm').classList.add('hidden');
-            document.getElementById('verifyForm').classList.remove('hidden');
-            document.getElementById('verifyEmail').value = email;
-          } else {
-            alert(data.error);
-          }
-        } catch (e) {
-          alert('Error requesting signup.');
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProFlow Intelligence - Sign Up</title>
+  <link rel="icon" type="image/png" href="https://iili.io/Fk5Cquf.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-custom-gray { background-color: #181919; }
+    .bg-box-gray { background-color: #2d2d2d; }
+  </style>
+  <script>
+    const BASE_URL = "https://joachimwilliams.pythonanywhere.com";
+
+    async function requestSignup() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      try {
+        const response = await fetch(`${BASE_URL}/signup`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password, email, firstName, lastName })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          document.getElementById('signupForm').classList.add('hidden');
+          document.getElementById('verifyForm').classList.remove('hidden');
+          document.getElementById('verifyEmail').value = email;
+        } else {
+          alert(data.error);
         }
+      } catch {
+        alert('Error requesting signup.');
       }
-      async function verifySignup() {
-        const email = document.getElementById('verifyEmail').value;
-        const code = document.getElementById('verifyCode').value;
-        try {
-          const response = await fetch('/verify', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, code })
-          });
-          const data = await response.json();
-          if (response.ok) {
-            alert('Account verified successfully! Redirecting to login...');
-            window.location.href = '/login.html';
-          } else {
-            alert(data.error);
-          }
-        } catch (e) {
-          alert('Error verifying signup.');
+    }
+
+    async function verifySignup() {
+      const email = document.getElementById('verifyEmail').value;
+      const code = document.getElementById('verifyCode').value;
+      try {
+        const response = await fetch(`${BASE_URL}/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, code })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          alert('Account verified successfully! Redirecting to login...');
+          window.location.href = 'login.html';
+        } else {
+          alert(data.error);
         }
+      } catch {
+        alert('Error verifying signup.');
       }
-    </script>
-  </head>
-  <body class="bg-custom-gray text-white font-sans min-h-screen flex items-center justify-center">
+    }
+  </script>
+</head>
+<body class="bg-custom-gray text-white font-sans min-h-screen flex items-center justify-center">
     <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 bg-custom-gray shadow-md">
       <div class="flex items-center space-x-2">
         <img src="https://iili.io/Fk5Cquf.png" alt="ProFlow Logo" class="w-8 h-8 sm:w-10 sm:h-10" />
